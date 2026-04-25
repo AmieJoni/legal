@@ -1,0 +1,25 @@
+<h1>Privacy Policy — Telox</h1>
+<p><strong>Last updated:</strong> March 2026</p>
+<h2>Summary</h2>
+<p>Telox is a serverless mesh messaging app. <strong>There are no servers. Messages travel directly between devices via Bluetooth and Wi-Fi Direct.</strong></p>
+<h2>Data Collection</h2>
+<ul>
+<li><strong>No servers</strong> — Messages are transmitted peer-to-peer. We never see them.</li>
+<li><strong>No accounts</strong> — Your identity is a locally-generated cryptographic key pair.</li>
+<li><strong>No analytics</strong> — No tracking, no telemetry.</li>
+<li><strong>No internet required</strong> — Works entirely via BLE and Wi-Fi Direct mesh.</li>
+</ul>
+<h2>Encryption</h2>
+<p>All messages are encrypted end-to-end (E2EE) using X25519 key exchange + ChaCha20-Poly1305. Only the recipient can decrypt.</p>
+<h2>Local Storage</h2>
+<p>Messages and keys are stored encrypted on your device using Hive (AES-256). Deleted when you uninstall.</p>
+<h2>Mesh Relay</h2>
+<p>Messages may be relayed through other Telox devices to reach their destination (flood routing). Relay nodes <strong>cannot read the content</strong> — only encrypted packets pass through.</p>
+<h2>Permissions</h2>
+<ul>
+<li><strong>Bluetooth</strong> — Required for BLE mesh communication</li>
+<li><strong>Location</strong> — Required by Android for BLE scanning (we do not use or store location)</li>
+<li><strong>Nearby Devices</strong> — Required for Wi-Fi Direct peer discovery</li>
+</ul>
+<h2>Contact</h2>
+<p><a href="mailto:contact@wordlye.com">contact@wordlye.com</a></p>
