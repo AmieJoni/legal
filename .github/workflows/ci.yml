@@ -1,0 +1,91 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-check:
+    name: Build, Lint & Accessibility
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: node build.js
+
+      # -----------------------------------------------------------------------
+      # 1. HTMLHint — structural HTML linting
+      # -----------------------------------------------------------------------
+      - name: Lint HTML (htmlhint)
+        run: npx htmlhint 'docs/**/*.html' --config .htmlhintrc
+
+      # -----------------------------------------------------------------------
+      # 2. Broken link check — validates all internal hrefs are reachable
+      # -----------------------------------------------------------------------
+      - name: Check links (lychee)
+        uses: lycheeverse/lychee-action@v1
+        with:
+          args: >
+            --base docs
+            --exclude-mail
+            --no-progress
+            'docs/**/*.html'
+          fail: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # -----------------------------------------------------------------------
+      # 3. Accessibility check — axe-core via playwright
+      # -----------------------------------------------------------------------
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run axe accessibility audit
+        run: node scripts/axe-check.js
+
+  deploy-check:
+    name: Validate deploy target
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    needs: build-and-check
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Rebuild with fresh date
+        run: node build.js
+
+      - name: Verify docs/ was generated
+        run: |
+          test -f docs/index.html || (echo "docs/index.html missing" && exit 1)
+          test -f docs/haveno/privacy.html || (echo "haveno/privacy.html missing" && exit 1)
+          test -f docs/haveno/terms.html || (echo "haveno/terms.html missing" && exit 1)
+          test -f docs/aidmap/privacy.html || (echo "aidmap/privacy.html missing" && exit 1)
+          test -f docs/aidmap/terms.html || (echo "aidmap/terms.html missing" && exit 1)
+          test -f docs/okayo/privacy.html || (echo "okayo/privacy.html missing" && exit 1)
+          test -f docs/okayo/terms.html || (echo "okayo/terms.html missing" && exit 1)
+          test -f docs/telox/privacy.html || (echo "telox/privacy.html missing" && exit 1)
+          test -f docs/telox/terms.html || (echo "telox/terms.html missing" && exit 1)
+          test -f docs/vivex/privacy.html || (echo "vivex/privacy.html missing" && exit 1)
+          test -f docs/vivex/terms.html || (echo "vivex/terms.html missing" && exit 1)
+          echo "All expected files present."
