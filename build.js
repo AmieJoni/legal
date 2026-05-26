@@ -62,6 +62,12 @@ const APPS = [
     tagline: 'Offline first-aid emergency guide — 40 procedures, 8 categories',
     schema: 'MobileApplication',
   },
+  {
+    id: 'barberai',
+    name: 'BarberAI',
+    tagline: 'Barbershop management platform with AI-powered virtual hair try-on',
+    schema: 'MobileApplication',
+  },
 ];
 
 // ---------------------------------------------------------------------------
