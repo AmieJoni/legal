@@ -10,6 +10,7 @@ Public legal pages for all Wordlye applications, hosted via GitHub Pages.
 
 | App | Privacy | Terms |
 |-----|---------|-------|
+| [EcoPilot](https://amiejoni.github.io/legal/ecopilot/privacy.html) | [Privacy](https://amiejoni.github.io/legal/ecopilot/privacy.html) | [Terms](https://amiejoni.github.io/legal/ecopilot/terms.html) |
 | [Haveno](https://amiejoni.github.io/legal/haveno/privacy.html) | [Privacy](https://amiejoni.github.io/legal/haveno/privacy.html) | [Terms](https://amiejoni.github.io/legal/haveno/terms.html) |
 | [Aidmap](https://amiejoni.github.io/legal/aidmap/privacy.html) | [Privacy](https://amiejoni.github.io/legal/aidmap/privacy.html) | [Terms](https://amiejoni.github.io/legal/aidmap/terms.html) |
 | [Okayo](https://amiejoni.github.io/legal/okayo/privacy.html) | [Privacy](https://amiejoni.github.io/legal/okayo/privacy.html) | [Terms](https://amiejoni.github.io/legal/okayo/terms.html) |
