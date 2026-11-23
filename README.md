@@ -16,6 +16,7 @@ Public legal pages for all Wordlye applications, hosted via GitHub Pages.
 | [Okayo](https://amiejoni.github.io/legal/okayo/privacy.html) | [Privacy](https://amiejoni.github.io/legal/okayo/privacy.html) | [Terms](https://amiejoni.github.io/legal/okayo/terms.html) |
 | [Telox](https://amiejoni.github.io/legal/telox/privacy.html) | [Privacy](https://amiejoni.github.io/legal/telox/privacy.html) | [Terms](https://amiejoni.github.io/legal/telox/terms.html) |
 | [Vivex](https://amiejoni.github.io/legal/vivex/privacy.html) | [Privacy](https://amiejoni.github.io/legal/vivex/privacy.html) | [Terms](https://amiejoni.github.io/legal/vivex/terms.html) |
+| [Mijote](https://amiejoni.github.io/legal/mijote/privacy.html) | [Privacy](https://amiejoni.github.io/legal/mijote/privacy.html) | [Terms](https://amiejoni.github.io/legal/mijote/terms.html) |
 
 ## Setup
 

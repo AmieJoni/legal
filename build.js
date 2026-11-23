@@ -68,6 +68,12 @@ const APPS = [
     tagline: 'Barbershop management platform with AI-powered virtual hair try-on',
     schema: 'MobileApplication',
   },
+  {
+    id: 'mijote',
+    name: 'Mijote',
+    tagline: 'Anti-waste cooking assistant — local-first, AI chef, no backend',
+    schema: 'MobileApplication',
+  },
 ];
 
 // ---------------------------------------------------------------------------
@@ -280,6 +286,7 @@ function build() {
       const content = loadContent(app.id, docType);
       const html = buildInnerPage({ app, docType, content });
       const outPath = path.join(__dirname, `docs/${app.id}/${docType}.html`);
+      fs.mkdirSync(path.dirname(outPath), { recursive: true });
       fs.writeFileSync(outPath, html);
       console.log(`  Written: docs/${app.id}/${docType}.html`);
     }
